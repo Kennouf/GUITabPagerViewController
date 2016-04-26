@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37CC06441CCFA4F700F78476 /* GUITabBarItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37CC06431CCFA4F700F78476 /* GUITabBarItemView.m */; };
 		796C72B91AA13C8600BF4A99 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C72B81AA13C8600BF4A99 /* main.m */; };
 		796C72BC1AA13C8600BF4A99 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C72BB1AA13C8600BF4A99 /* AppDelegate.m */; };
 		796C72BF1AA13C8600BF4A99 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 796C72BE1AA13C8600BF4A99 /* ViewController.m */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		37CC06421CCFA4F700F78476 /* GUITabBarItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUITabBarItemView.h; sourceTree = "<group>"; };
+		37CC06431CCFA4F700F78476 /* GUITabBarItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUITabBarItemView.m; sourceTree = "<group>"; };
 		796C72B31AA13C8600BF4A99 /* GUITabPagerViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUITabPagerViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		796C72B71AA13C8600BF4A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796C72B81AA13C8600BF4A99 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -133,6 +136,8 @@
 				796C72DE1AA13CB900BF4A99 /* GUITabPagerViewController.m */,
 				796C72DF1AA13CB900BF4A99 /* GUITabScrollView.h */,
 				796C72E01AA13CB900BF4A99 /* GUITabScrollView.m */,
+				37CC06421CCFA4F700F78476 /* GUITabBarItemView.h */,
+				37CC06431CCFA4F700F78476 /* GUITabBarItemView.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -240,6 +245,7 @@
 				796C72E11AA13CB900BF4A99 /* GUITabPagerViewController.m in Sources */,
 				796C72BF1AA13C8600BF4A99 /* ViewController.m in Sources */,
 				796C72BC1AA13C8600BF4A99 /* AppDelegate.m in Sources */,
+				37CC06441CCFA4F700F78476 /* GUITabBarItemView.m in Sources */,
 				796C72B91AA13C8600BF4A99 /* main.m in Sources */,
 				796C72E21AA13CB900BF4A99 /* GUITabScrollView.m in Sources */,
 			);
@@ -436,6 +442,7 @@
 				796C72D81AA13C8600BF4A99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		796C72D91AA13C8600BF4A99 /* Build configuration list for PBXNativeTarget "GUITabPagerViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +451,7 @@
 				796C72DB1AA13C8600BF4A99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

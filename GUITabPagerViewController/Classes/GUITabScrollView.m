@@ -14,7 +14,6 @@
 
 - (void)_initTabbatAtIndex:(NSInteger)index;
 
-@property (strong, nonatomic) NSArray *tabViews;
 @property (strong, nonatomic) NSLayoutConstraint *tabIndicatorDisplacement;
 @property (strong, nonatomic) NSLayoutConstraint *tabIndicatorWidth;
 

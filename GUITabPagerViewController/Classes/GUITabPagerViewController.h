@@ -11,10 +11,14 @@
 @protocol GUITabPagerDataSource;
 @protocol GUITabPagerDelegate;
 
+@class GUITabScrollView, GUITabBarItemView;
+
 @interface GUITabPagerViewController : UIViewController
 
 @property (weak, nonatomic) id<GUITabPagerDataSource> dataSource;
 @property (weak, nonatomic) id<GUITabPagerDelegate> delegate;
+
+@property (strong, nonatomic) GUITabScrollView *header;
 
 - (void)reloadData;
 - (NSInteger)selectedIndex;
@@ -31,13 +35,14 @@
 - (UIViewController *)viewControllerForIndex:(NSInteger)index;
 
 @optional
-- (UIView *)viewForTabAtIndex:(NSInteger)index;
+- (GUITabBarItemView *)viewForTabAtIndex:(NSInteger)index;
 - (NSString *)titleForTabAtIndex:(NSInteger)index;
 - (CGFloat)tabHeight;
 - (UIColor *)tabColor;
 - (UIColor *)tabBackgroundColor;
 - (UIFont *)titleFont;
 - (UIColor *)titleColor;
+- (UIColor *)selectedTitleColor;
 
 @end
 
