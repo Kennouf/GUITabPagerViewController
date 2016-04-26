@@ -12,7 +12,6 @@
 
 @interface GUITabPagerViewController () <GUITabScrollDelegate, UIPageViewControllerDataSource, UIPageViewControllerDelegate>
 
-@property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (assign, nonatomic) NSInteger selectedIndex;
 
 @property (strong, nonatomic) NSMutableArray *viewControllers;

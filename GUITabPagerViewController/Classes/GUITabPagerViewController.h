@@ -19,6 +19,7 @@
 @property (weak, nonatomic) id<GUITabPagerDelegate> delegate;
 
 @property (strong, nonatomic) GUITabScrollView *header;
+@property (strong, nonatomic) UIPageViewController *pageViewController;
 
 - (void)reloadData;
 - (NSInteger)selectedIndex;
