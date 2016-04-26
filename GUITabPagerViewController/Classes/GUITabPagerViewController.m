@@ -119,7 +119,6 @@
                                                 if ([[self delegate] respondsToSelector:@selector(tabPager:didTransitionToTabAtIndex:)]) {
                                                     [[self delegate] tabPager:self didTransitionToTabAtIndex:[self selectedIndex]];
                                                 }
-                                                [self reloadTabs];
                                             }];
     }
 }
