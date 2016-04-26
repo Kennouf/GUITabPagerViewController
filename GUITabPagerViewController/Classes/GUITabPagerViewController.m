@@ -74,13 +74,6 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers {
     NSInteger index = [[self viewControllers] indexOfObject:pendingViewControllers[0]];
     [[self header] animateToTabAtIndex:index];
-    for (GUITabBarItemView *view in self.header.tabViews) {
-        if ([self.header.tabViews indexOfObjectIdenticalTo:view] == index) {
-            view.itemLabel.textColor = [self selectedColor];
-        } else {
-            view.itemLabel.textColor = [self color];
-        }
-    }
     if ([[self delegate] respondsToSelector:@selector(tabPager:willTransitionToTabAtIndex:)]) {
         [[self delegate] tabPager:self willTransitionToTabAtIndex:index];
     }
@@ -89,13 +82,6 @@
 - (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed {
     [self setSelectedIndex:[[self viewControllers] indexOfObject:[[self pageViewController] viewControllers][0]]];
     [[self header] animateToTabAtIndex:[self selectedIndex]];
-    for (GUITabBarItemView *view in self.header.tabViews) {
-        if ([self.header.tabViews indexOfObjectIdenticalTo:view] == [self selectedIndex]) {
-            view.itemLabel.textColor = [self selectedColor];
-        } else {
-            view.itemLabel.textColor = [self color];
-        }
-    }
     if ([[self delegate] respondsToSelector:@selector(tabPager:didTransitionToTabAtIndex:)]) {
         [[self delegate] tabPager:self didTransitionToTabAtIndex:[self selectedIndex]];
     }
@@ -108,7 +94,22 @@
         if ([[self delegate] respondsToSelector:@selector(tabPager:willTransitionToTabAtIndex:)]) {
             [[self delegate] tabPager:self willTransitionToTabAtIndex:index];
         }
-        
+        for (GUITabBarItemView *view in self.header.tabViews) {
+            if ([view isKindOfClass:GUITabBarItemView.class]) {
+                if ([self.header.tabViews indexOfObjectIdenticalTo:view] == index) {
+                    view.itemLabel.textColor = [self selectedColor];
+                } else {
+                    view.itemLabel.textColor = [self color];
+                }
+            } else if ([view isKindOfClass:UILabel.class]) {
+                if ([self.header.tabViews indexOfObjectIdenticalTo:view] == index) {
+                    ((UILabel *)view).textColor = [self selectedColor];
+                } else {
+                    ((UILabel *)view).textColor = [self color];
+                }
+                
+            }
+        }
         [[self pageViewController]  setViewControllers:@[[self viewControllers][index]]
                                              direction:(index > [self selectedIndex]) ? UIPageViewControllerNavigationDirectionForward : UIPageViewControllerNavigationDirectionReverse
                                               animated:YES

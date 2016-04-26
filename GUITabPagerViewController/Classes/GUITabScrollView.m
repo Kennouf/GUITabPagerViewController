@@ -44,10 +44,10 @@
     
     [self setTabViews:tabViews];
     
-    CGFloat width = 10;
+    CGFloat width = 0;
     
     for (UIView *view in tabViews) {
-      width += view.frame.size.width + 10;
+      width += view.frame.size.width;
     }
     
     [self setContentSize:CGSizeMake(MAX(width, self.frame.size.width), height)];
@@ -68,10 +68,10 @@
     for (UIView *tab in tabViews) {
       [contentView addSubview:tab];
       [tab setTranslatesAutoresizingMaskIntoConstraints:NO];
-      [VFL appendFormat:@"-%f-[T%d(%f)]", index ? 10.0f : 10.0 + widthDifference / 2, index, tab.frame.size.width];
+      [VFL appendFormat:@"-(%f)-[T%d(%f)]", index ? -1.0f : -1.0 + widthDifference / 2, index, tab.frame.size.width];
       [views setObject:tab forKey:[NSString stringWithFormat:@"T%d", index]];
       
-      [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[T]-2-|"
+      [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[T]-0-|"
                                                                           options:0
                                                                           metrics:nil
                                                                             views:@{@"T": tab}]];
@@ -101,7 +101,7 @@
     
     [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-height-[S(2)]-0-|"
                                                                         options:0
-                                                                        metrics:@{@"height": @(height - 2.0f)}
+                                                                        metrics:@{@"height": @(height)}
                                                                           views:@{@"S": bottomLine}]];
     UIView *tabIndicator = [UIView new];
     [tabIndicator setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -114,7 +114,7 @@
                                                                       toItem:contentView
                                                                    attribute:NSLayoutAttributeLeading
                                                                   multiplier:1.0f
-                                                                    constant:widthDifference / 2 + 5]];
+                                                                    constant:widthDifference / 2]];
     
     [self setTabIndicatorWidth:[NSLayoutConstraint constraintWithItem:tabIndicator
                                                             attribute:NSLayoutAttributeWidth
@@ -122,7 +122,7 @@
                                                                toItem:nil
                                                             attribute:0
                                                            multiplier:1.0f
-                                                             constant:[tabViews[0] frame].size.width + 10]];
+                                                             constant:[tabViews[0] frame].size.width]];
     
     [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[S(5)]-0-|"
                                                                         options:0
@@ -147,13 +147,13 @@
         animatedDuration = 0.0f;
     }
     
-    CGFloat x = [[self tabViews][0] frame].origin.x - 5;
+    CGFloat x = [[self tabViews][0] frame].origin.x;
     
     for (int i = 0; i < index; i++) {
-        x += [[self tabViews][i] frame].size.width + 10;
+        x += [[self tabViews][i] frame].size.width - 1;
     }
     
-    CGFloat w = [[self tabViews][index] frame].size.width + 10;
+    CGFloat w = [[self tabViews][index] frame].size.width;
     [UIView animateWithDuration:animatedDuration
                      animations:^{
                          CGFloat p = x - (self.frame.size.width - w) / 2;
@@ -181,10 +181,10 @@
     CGFloat x = [[self tabViews][0] frame].origin.x - 5;
     
     for (int i = 0; i < index; i++) {
-        x += [[self tabViews][i] frame].size.width + 10;
+        x += [[self tabViews][i] frame].size.width;
     }
     
-    CGFloat w = [[self tabViews][index] frame].size.width + 10;
+    CGFloat w = [[self tabViews][index] frame].size.width;
     
     CGFloat p = x - (self.frame.size.width - w) / 2;
     CGFloat min = 0;
