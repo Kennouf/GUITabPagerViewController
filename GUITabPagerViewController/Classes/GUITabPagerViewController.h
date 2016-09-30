@@ -22,6 +22,7 @@
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 
 - (void)reloadData;
+- (void)reloadTabs;
 - (NSInteger)selectedIndex;
 
 - (void)selectTabbarIndex:(NSInteger)index;
